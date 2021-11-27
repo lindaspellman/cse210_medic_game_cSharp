@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "EmP5idAMFz3yGneukKpGWOH1m+1tDD6Fl0WeTDQ2zVPT8XgH06lqPtFRtOfjK72Xxzjmu2+Ccrd14CSOHjehgw==",
+  "dgSpecHash": "rLcXtR9fDflRTzXVt6bbJy2ZRbzcYaPbUmsA4fAIo3iHaPXG+Rj4xk7DpmcOgCVZgU6fU9bZuTI0N9BGoJNX9A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Linda\\OneDrive\\Desktop\\BYU-I Computer Science Major\\C#\\Programming with Classes - CSE 210\\Final Project\\cse210_medic_game_cSharp\\cse210_medic_game_cSharp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Linda\\.nuget\\packages\\raylib-cs\\3.7.0.1\\raylib-cs.3.7.0.1.nupkg.sha512",
+    "C:\\Users\\Linda\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
