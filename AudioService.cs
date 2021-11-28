@@ -1,9 +1,8 @@
 using System;
 using Raylib_cs;
-using cse210_batter_csharp.Casting;
 using System.Collections.Generic;
 
-namespace cse210_batter_csharp.Services
+namespace cse210_medic_game_cSharp
 {
     /// <summary>
     /// Handles all the audio elements the game.

@@ -1,6 +1,6 @@
 using System;
 
-namespace _07_snake
+namespace cse210_medic_game_cSharp
 {
     /// <summary>
     /// The score board in the top portion of the game.

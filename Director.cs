@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using cse210_batter_csharp.Casting;
-using cse210_batter_csharp.Services;
-using cse210_batter_csharp.Scripting;
 
-namespace cse210_batter_csharp
+namespace cse210_medic_game_cSharp
 {
     /// <summary>
     /// The director is responsible to direct the game, including to keep track of all

@@ -14,7 +14,6 @@ namespace cse210_medic_game_cSharp
 
             cast["medic"] = new List<Actor>();
             Medic medic = new Medic();
-            Point medicStar = new Point(Constants.MEDIC_X, Constants.MEDIC_Y);
 
             // Enemy //////////////////////////////////////////////////////////////
 
@@ -31,15 +30,15 @@ namespace cse210_medic_game_cSharp
 
             OutputService outputService = new OutputService();
             InputService inputService = new InputService();
-            PhysicsService physicsService = new PhysicsService();
-            AudioService audioService = new AudioService();
+            // PhysicsService physicsService = new PhysicsService();
+            // AudioService audioService = new AudioService();
 
             script["output"] = new List<Action>();
             script["input"] = new List<Action>();
             script["update"] = new List<Action>();
 
-            // DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
-            // script["output"].Add(drawActorsAction);
+            DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
+            script["output"].Add(drawActorsAction);
 
             // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
             // MoveActorsAction moveActorsAction = new MoveActorsAction();

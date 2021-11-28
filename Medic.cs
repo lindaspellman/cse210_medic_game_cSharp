@@ -19,8 +19,11 @@ namespace cse210_medic_game_cSharp
             Point position = new Point(x, y);
             Point velocity = new Point(0, -1);
 
-            // Point medic = new Point(position, velocity);
-            SetPosition(position);
+            Box box = new Box(position, velocity);
+            
+
+            // Point position = new Point(Constants.MEDIC_X, Constants.MEDIC_Y);
+            // SetPosition(position);
         }
     }
 }
