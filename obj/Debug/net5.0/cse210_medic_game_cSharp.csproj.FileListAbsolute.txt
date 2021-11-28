@@ -1,0 +1,5 @@
+C:\Users\Linda\OneDrive\Desktop\BYU-I Computer Science Major\C#\Programming with Classes - CSE 210\Final Project\cse210_medic_game_cSharp\obj\Debug\net5.0\cse210_medic_game_cSharp.csproj.AssemblyReference.cache
+C:\Users\Linda\OneDrive\Desktop\BYU-I Computer Science Major\C#\Programming with Classes - CSE 210\Final Project\cse210_medic_game_cSharp\obj\Debug\net5.0\cse210_medic_game_cSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Linda\OneDrive\Desktop\BYU-I Computer Science Major\C#\Programming with Classes - CSE 210\Final Project\cse210_medic_game_cSharp\obj\Debug\net5.0\cse210_medic_game_cSharp.AssemblyInfoInputs.cache
+C:\Users\Linda\OneDrive\Desktop\BYU-I Computer Science Major\C#\Programming with Classes - CSE 210\Final Project\cse210_medic_game_cSharp\obj\Debug\net5.0\cse210_medic_game_cSharp.AssemblyInfo.cs
+C:\Users\Linda\OneDrive\Desktop\BYU-I Computer Science Major\C#\Programming with Classes - CSE 210\Final Project\cse210_medic_game_cSharp\obj\Debug\net5.0\cse210_medic_game_cSharp.csproj.CoreCompileInputs.cache

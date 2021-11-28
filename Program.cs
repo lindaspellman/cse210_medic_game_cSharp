@@ -1,7 +1,4 @@
 ﻿using System;
-using cse210_batter_csharp.Services;
-using cse210_batter_csharp.Casting;
-using cse210_batter_csharp.Scripting;
 using System.Collections.Generic;
 
 namespace cse210_medic_game_cSharp
@@ -41,8 +38,8 @@ namespace cse210_medic_game_cSharp
             script["input"] = new List<Action>();
             script["update"] = new List<Action>();
 
-            DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
-            script["output"].Add(drawActorsAction);
+            // DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
+            // script["output"].Add(drawActorsAction);
 
             // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
             // MoveActorsAction moveActorsAction = new MoveActorsAction();

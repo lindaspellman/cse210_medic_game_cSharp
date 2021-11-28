@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using cse210_batter_csharp.Casting;
-using cse210_batter_csharp.Services;
-using cse210_batter_csharp.Scripting;
 
-namespace cse210_batter_csharp
+namespace cse210_medic_game_cSharp
 {
     /// <summary>
     /// 
@@ -16,11 +13,14 @@ namespace cse210_batter_csharp
     {
         public Medic()
         {
-            // SetWidth(Constants.PADDLE_WIDTH);
-            // SetHeight(Constants.PADDLE_HEIGHT);
+            int x = Constants.MAX_X / 2;
+            int y = Constants.MAX_Y / 2;
 
-            Point paddlePosition = new Point(Constants.MEDIC_X, Constants.MEDIC_Y);
-            SetPosition(paddlePosition);
+            Point position = new Point(x, y);
+            Point velocity = new Point(0, -1);
+
+            // Point medic = new Point(position, velocity);
+            SetPosition(position);
         }
     }
 }

@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using cse210_batter_csharp.Casting;
 
-namespace cse210_batter_csharp
+namespace cse210_medic_game_cSharp
 {
     /// <summary>
     /// The base class of all other actions.
