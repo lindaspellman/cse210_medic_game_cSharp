@@ -67,7 +67,7 @@ namespace cse210_medic_game_cSharp
         /// <param name="height"></param>
         public void DrawBox(int x, int y, int width, int height)
         {
-            Raylib.DrawRectangle(x, y, width, height, Raylib_cs.Color.BLUE);            
+            Raylib.DrawRectangle(x, y, width, height, Raylib_cs.Color.BLUE);
         }
 
         /// <summary>

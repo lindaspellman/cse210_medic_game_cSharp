@@ -22,10 +22,15 @@ namespace cse210_medic_game_cSharp
         {
             Point direction = _inputService.GetDirection();
             
-            Actor paddle = cast["paddle"][0];
+            Actor medic = cast["medic"][0];
 
-            Point velocity = direction.Scale(Constants.MEDIC_SPEED);
-            paddle.SetVelocity(velocity);
+            Point medicVelocity = direction.Scale(Constants.MEDIC_SPEED);
+            medic.SetVelocity(medicVelocity);
+
+            // Actor enemy = cast["enemies"];
+
+            // Point enemyVelocity = direction.Scale(Constants.ENEMY_SPEED);
+            // medic.SetVelocity(enemyVelocity);
         }
     }
 }

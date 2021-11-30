@@ -32,15 +32,22 @@ namespace cse210_medic_game_cSharp
         public const int MEDIC_X = MAX_X / 2;
         public const int MEDIC_Y = MAX_Y - 25;
 
-        // public const int BRICK_WIDTH = 48;
-        // public const int BRICK_HEIGHT = 24;
+        public const int CIVILIAN_WIDTH = 30;
+        public const int CIVILIAN_HEIGHT = 30;
 
-        // public const int BRICK_SPACE = 5;
+        public const int CIVILIAN_SPACE = 5;
 
         public const int MEDIC_SPEED = 15;
+        public const int MEDIC_WIDTH = 25;
+        public const int MEDIC_HEIGHT = 25;
 
-        public const int PADDLE_WIDTH = 96; // ???
-        public const int PADDLE_HEIGHT = 24; // ???
+        public const int ENEMY_WIDTH = 25;
+        public const int ENEMY_HEIGHT = 25;
+
+        public const int ENEMY_SPACE = 5;
+
+        public const int ENEMIES_PRESENT = 15;
+
         
         // public const int BALL_WIDTH = 24;
         // public const int BALL_HEIGHT = 24;

@@ -21,38 +21,58 @@ namespace cse210_medic_game_cSharp
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
-            Actor balls = cast["balls"][0]; // There is only one
-            Actor paddle = cast["paddle"][0]; // There is only one 
-            List<Actor> bricks = cast["bricks"]; // Get all the bricks
-            List<Actor> toRemoveBricks = new List<Actor>();
+            List<Actor> civilians = cast["civilian"]; // Get all the civilians
+            List<Actor> medic = cast["medic"]; // Only one 
+            List<Actor> enemies = cast["enemy"]; // Get all the enemies
+            List<Actor> toRemoveEnemies = new List<Actor>();
+            List<Actor> toRemoveCivilians = new List<Actor>();
+            List<Actor> toRemoveMedic = new List<Actor>();
 
-            foreach (Actor ball in cast["balls"])
-            {
+            ///
 
-                if (_physicsService.IsCollision(paddle, ball))
-                {
-                    //Ball b = (Ball)ball;
-                    //b.BounceVertical();
-                    _audioService.PlaySound(Constants.SOUND_BOUNCE);
-                }
+            // foreach (Actor c in civilians)
+            // {
+            //     if (_physicsService.IsCollision(medic, c))
+            //     {
+            //         Civilian civilian = (Civilian)c;
+            //         _audioService.PlaySound(Constants.SOUND_BOUNCE);
+            //         toRemoveCivilians.Add(civilian);
+            //     }
+            // }
+            // foreach (Civilian civ in toRemoveCivilians)
+            // {
+            //     civilians.Remove(civ);
+            // }
+                
+            // ///
 
-                foreach (Actor brick in cast["bricks"])
-                {
-                    if(_physicsService.IsCollision(ball, brick))
-                    {
-                        //Ball b = (Ball)balls;
-                        //b.BounceVertical();
-                        _audioService.PlaySound(Constants.SOUND_BOUNCE);
-                        toRemoveBricks.Add(brick);
-                    }
-                }
+            // foreach (Actor e in enemies)
+            // {
+            //     if(_physicsService.IsCollision(medic, e))
+            //     {
+            //         Enemy e = (Enemy)enemy;
+            //         _audioService.PlaySound(Constants.SOUND_BOUNCE);
+            //         toRemoveEnemies.Add(e);
+            //     }
+            // }
 
-                //foreach (Brick b in toRemoveBricks)
-                {
-                    //bricks.Remove(b);
-                }
+            // foreach (Enemy en in toRemoveEnemies)
+            // {
+            //     enemies.Remove(en);
+            // }
+            
+            // ///
 
-            }
+            // if (_physicsService.IsCollision(medic, enemies))
+            // {
+            //     Civilian civilian = (Civilian)c;
+            //     _audioService.PlaySound(Constants.SOUND_BOUNCE);
+            //     toRemoveMedic.Add(medic);
+            // }
+            // foreach (Medic m in toRemoveMedic)
+            // {
+            //     medic.Remove(m);
+            // }
         }
     }
 }

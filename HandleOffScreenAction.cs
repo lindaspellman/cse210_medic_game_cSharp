@@ -19,13 +19,13 @@ namespace cse210_medic_game_cSharp
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
-            Actor ball = cast["balls"][0]; // There is only one
+            Actor medic = cast["medic"][0]; // There is only one
 
-            int x = ball.GetX();
-            int y = ball.GetY();
+            int x = medic.GetX();
+            int y = medic.GetY();
 
-            int dx = ball.GetVelocity().GetX();
-            int dy = ball.GetVelocity().GetY();
+            int dx = medic.GetVelocity().GetX();
+            int dy = medic.GetVelocity().GetY();
 
             if (x > Constants.MAX_X || x < 0)
             {
@@ -37,7 +37,7 @@ namespace cse210_medic_game_cSharp
                 dy = -dy;
             }
 
-            ball.SetVelocity(new Point(dx, dy));
+            medic.SetVelocity(new Point(dx, dy));
         
         }
     }
