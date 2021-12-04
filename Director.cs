@@ -29,7 +29,7 @@ namespace cse210_medic_game_cSharp
         public void Direct()
         {
             bool countDown = false;
-            int frameCount = 200;
+            int frameCount = 150;
 
             while (_keepPlaying)
             {
@@ -63,7 +63,7 @@ namespace cse210_medic_game_cSharp
                     // level system: when frameCount gets to 0, reset score, increment enemies, reset frameCount
                 }
             }
-            
+
             Console.WriteLine("Game over!");
         }
 
