@@ -65,9 +65,9 @@ namespace cse210_medic_game_cSharp
         /// <param name="y"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
-        public void DrawBox(int x, int y, int width, int height)
+        public void DrawBox(int x, int y, int width, int height, Raylib_cs.Color color)
         {
-            Raylib.DrawRectangle(x, y, width, height, Raylib_cs.Color.BLUE);
+            Raylib.DrawRectangle(x, y, width, height, color);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace cse210_medic_game_cSharp
         /// <param name="y"></param>
         /// <param name="text"></param>
         /// <param name="darkText"></param>
-        public void DrawText(int x, int y, string text, bool darkText)
+        public void DrawText(int x, int y, string text, bool darkText, int fontSize)
         {
             Raylib_cs.Color color = Raylib_cs.Color.WHITE;
 
@@ -107,7 +107,7 @@ namespace cse210_medic_game_cSharp
             Raylib.DrawText(text,
                 x + Constants.DEFAULT_TEXT_OFFSET,
                 y + Constants.DEFAULT_TEXT_OFFSET,
-                Constants.DEFAULT_FONT_SIZE,
+                fontSize,
                 color);
         }
 
@@ -130,13 +130,26 @@ namespace cse210_medic_game_cSharp
             }
             else if (actor.HasText())
             {
-                bool darkText = true;
+                bool darkText = false;
                 string text = actor.GetText();
-                DrawText(x, y, text, darkText);
+                DrawText(x, y, text, darkText, actor.GetFontSize());
             }
             else
             {
-                DrawBox(x, y, width, height);
+                if (actor is Medic)
+                {
+                    DrawBox(x, y, width, height, Raylib_cs.Color.BLUE);
+                }
+
+                if (actor is Civilian)
+                {
+                    DrawBox(x, y, width, height, Raylib_cs.Color.GREEN);
+                }
+
+                if (actor is Enemy)
+                {
+                    DrawBox(x, y, width, height, Raylib_cs.Color.RED);
+                }
             }
         }
 

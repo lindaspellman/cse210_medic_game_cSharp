@@ -10,6 +10,8 @@ namespace cse210_medic_game_cSharp
         protected Point _position;
         protected Point _velocity;
 
+        protected Point _fractionalMovement;
+
         protected int _width = 0;
         protected int _height = 0;
 
@@ -129,7 +131,7 @@ namespace cse210_medic_game_cSharp
             _velocity = newVelocity;
         }
 
-        public void MoveNext()
+        public virtual void MoveNext()
         {
             int x = _position.GetX();
             int y = _position.GetY();
@@ -156,6 +158,11 @@ namespace cse210_medic_game_cSharp
         public override string ToString()
         {
             return $"Position: ({_position.GetX()}, {_position.GetY()}), Velocity({_velocity.GetX()}, {_velocity.GetY()})";
+        }
+
+        public virtual int GetFontSize()
+        {
+            return Constants.DEFAULT_FONT_SIZE;
         }
 
     }

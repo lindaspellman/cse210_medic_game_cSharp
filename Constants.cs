@@ -7,12 +7,25 @@ namespace cse210_medic_game_cSharp
     /// </summary>
     public static class Constants
     {
+        public const int VICTORY_POINTS = 300;
+        public const int STARTING_POINTS = 50;
+        public const int ENEMY_POINTS = -20;
+        public const int CIVILIAN_POINTS = 15;
+
+
         public const int MAX_X = 800;
         public const int MAX_Y = 600;
         public const int FRAME_RATE = 30;
 
+        public const int MINIMUM_SPEED = 4;
+        public const int MAXIMUM_SPEED = 9;
+        public const int ENEMY_FRACTION = 5;
+
+
         public const int DEFAULT_SQUARE_SIZE = 20;
-        public const int DEFAULT_FONT_SIZE = 20;
+        public const int DEFAULT_FONT_SIZE = 30;
+
+        public const int GAMEOVER_FONT_SIZE = 100;
         public const int DEFAULT_TEXT_OFFSET = 4;
 
         // public const string IMAGE_BRICK = "./Assets/brick-3.png";
@@ -37,6 +50,8 @@ namespace cse210_medic_game_cSharp
 
         public const int CIVILIAN_SPACE = 5;
 
+        public const int CIVILIANS_PRESENT = 12;
+
         public const int MEDIC_SPEED = 15;
         public const int MEDIC_WIDTH = 25;
         public const int MEDIC_HEIGHT = 25;
@@ -46,7 +61,7 @@ namespace cse210_medic_game_cSharp
 
         public const int ENEMY_SPACE = 5;
 
-        public const int ENEMIES_PRESENT = 15;
+        public const int ENEMIES_PRESENT = 5;
 
         
         // public const int BALL_WIDTH = 24;

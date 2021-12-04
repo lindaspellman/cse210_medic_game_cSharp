@@ -17,11 +17,26 @@ namespace cse210_medic_game_cSharp
 
         public override void Execute(Dictionary<string, List<Actor>> cast)
         {
+            List<Actor> scoreboard = cast["scoreboard"]; // Only one
+            ScoreBoard sb = (ScoreBoard)scoreboard[0];
+            if (sb.GameOver())
+            {
+                return;
+            }
+            
             foreach (List<Actor> group in cast.Values)
             {
                 foreach (Actor actor in group)
                 {
-                    MoveActor(actor);
+                    // if (actor is Enemy)
+                    // {
+                    //     Enemy enemy = (Enemy)actor;
+                    //     enemy.MoveNext();
+                    // }
+                    // else
+                    {
+                        MoveActor(actor);
+                    }
                 }
             }
         }

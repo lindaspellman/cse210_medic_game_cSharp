@@ -11,23 +11,16 @@ namespace cse210_medic_game_cSharp
     /// </summary>
     public class Civilian : Actor 
     {
+        Random randomGenerator = new Random();
         public Civilian()
         {
-            int x = Constants.MAX_X / 2;
-            int y = Constants.MAX_Y / 2;
+            int randomX = randomGenerator.Next(Constants.CIVILIAN_SPACE, Constants.MAX_X - Constants.CIVILIAN_WIDTH - Constants.CIVILIAN_SPACE);
+            int randomY = randomGenerator.Next(Constants.CIVILIAN_SPACE, Constants.MAX_Y - Constants.CIVILIAN_HEIGHT - Constants.CIVILIAN_SPACE);
+            Point _point = new Point(randomX, randomY);
+            SetPosition(_point);
 
             SetHeight(Constants.CIVILIAN_HEIGHT);
             SetWidth(Constants.CIVILIAN_WIDTH);
-
-            Point position = new Point(200, 300);
-            Point velocity = new Point(0, 0);
-
-            SetPosition(position);
-
-            
-
-            // Point position = new Point(Constants.MEDIC_X, Constants.MEDIC_Y);
-            // SetPosition(position);
         }
     }
 }

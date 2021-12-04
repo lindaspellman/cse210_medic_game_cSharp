@@ -27,10 +27,6 @@ namespace cse210_medic_game_cSharp
             Point medicVelocity = direction.Scale(Constants.MEDIC_SPEED);
             medic.SetVelocity(medicVelocity);
 
-            // Actor enemy = cast["enemies"];
-
-            // Point enemyVelocity = direction.Scale(Constants.ENEMY_SPEED);
-            // medic.SetVelocity(enemyVelocity);
         }
     }
 }

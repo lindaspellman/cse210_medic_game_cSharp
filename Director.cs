@@ -16,6 +16,7 @@ namespace cse210_medic_game_cSharp
         private Dictionary<string, List<Actor>> _cast;
         private Dictionary<string, List<Action>> _script;
 
+
         public Director(Dictionary<string, List<Actor>> cast, Dictionary<string, List<Action>> script)
         {
             _cast = cast;
@@ -27,6 +28,9 @@ namespace cse210_medic_game_cSharp
         /// </summary>
         public void Direct()
         {
+            bool countDown = false;
+            int frameCount = 200;
+
             while (_keepPlaying)
             {
                 CueAction("input");
@@ -37,8 +41,29 @@ namespace cse210_medic_game_cSharp
                 {
                     _keepPlaying = false;
                 }
-            }
 
+                List<Actor> scoreboard = _cast["scoreboard"]; // Only one
+                ScoreBoard sb = (ScoreBoard)scoreboard[0];
+
+                if (sb.GameOver())
+                {
+                    if (countDown == false)
+                    {
+                        countDown = true;
+                    }
+                    else 
+                    {
+                        frameCount--;
+                    }
+
+                    if (frameCount <= 0)
+                    {
+                        _keepPlaying = false;
+                    }
+                    // level system: when frameCount gets to 0, reset score, increment enemies, reset frameCount
+                }
+            }
+            
             Console.WriteLine("Game over!");
         }
 
@@ -54,6 +79,7 @@ namespace cse210_medic_game_cSharp
             {
                 action.Execute(_cast);
             }
+
         }
 
     }

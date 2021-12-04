@@ -24,20 +24,63 @@ namespace cse210_medic_game_cSharp
             int x = medic.GetX();
             int y = medic.GetY();
 
-            int dx = medic.GetVelocity().GetX();
-            int dy = medic.GetVelocity().GetY();
-
-            if (x > Constants.MAX_X || x < 0)
+            if (x > Constants.MAX_X - Constants.MEDIC_WIDTH)
             {
-                dx = -dx;
+                x = Constants.MAX_X - Constants.MEDIC_WIDTH;
             }
 
-            if (y > Constants.MAX_Y || y < 0)
+            if (x < 0)
             {
-                dy = -dy;
+                x = 0;
             }
 
-            medic.SetVelocity(new Point(dx, dy));
+            if (y > Constants.MAX_Y - Constants.MEDIC_HEIGHT)
+            {
+                y = Constants.MAX_Y - Constants.MEDIC_HEIGHT;
+            }
+
+            if (y < 0)
+            {
+                y = 0;
+            }
+
+            medic.SetPosition(new Point(x, y));
+
+            foreach (Actor enemy in cast["enemies"])
+            {
+                int ex = enemy.GetX();
+                int ey = enemy.GetY();
+
+                int edx = enemy.GetVelocity().GetX();
+                int edy = enemy.GetVelocity().GetY();
+
+                if (ex > Constants.MAX_X - Constants.ENEMY_WIDTH)
+                {
+                    edx = -edx;
+                    ex = Constants.MAX_X - Constants.ENEMY_WIDTH;
+                }
+
+                if (ex < 0)
+                {
+                    edx = -edx;
+                    ex = 0;
+                }
+
+                if (ey > Constants.MAX_Y - Constants.ENEMY_HEIGHT)
+                {
+                    edy = -edy;
+                    ey = Constants.MAX_Y - Constants.ENEMY_HEIGHT;
+                }
+
+                if (ey < 0)
+                {
+                    edy = -edy;
+                    ey = 0;
+                }
+
+                enemy.SetPosition(new Point(ex, ey));
+                enemy.SetVelocity(new Point(edx, edy));
+            }
         
         }
     }

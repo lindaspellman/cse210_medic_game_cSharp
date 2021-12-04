@@ -7,11 +7,11 @@ namespace cse210_medic_game_cSharp
     /// </summary>
     class ScoreBoard : Actor
     {
-        private int _points = 0;
+        private int _points = Constants.STARTING_POINTS;
 
         public ScoreBoard()
         {
-            _position = new Point(1, 0);
+            _position = new Point(20, 20);
             _width = 0;
             _height = 0;
             
@@ -36,6 +36,37 @@ namespace cse210_medic_game_cSharp
         private void UpdateText()
         {
             _text = $"Score: {_points}";
+            if (_points <= 0)
+            {
+                _position = new Point(Constants.MAX_X / 2 - Constants.GAMEOVER_FONT_SIZE * 2, Constants.MAX_Y / 2 - Constants.GAMEOVER_FONT_SIZE / 2);
+                _text = $"Defeat!";
+            }
+            if (_points >= Constants.VICTORY_POINTS)
+            {
+                _position = new Point(Constants.MAX_X / 2 - Constants.GAMEOVER_FONT_SIZE * 2, Constants.MAX_Y / 2 - Constants.GAMEOVER_FONT_SIZE / 2);
+                _text = $"Victory!";
+            }
+        }
+
+        public bool GameOver()
+        {
+            if (_points <= 0 || _points >= Constants.VICTORY_POINTS)
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
+
+        public override int GetFontSize()
+        {
+            if (GameOver())
+            {
+                return Constants.GAMEOVER_FONT_SIZE;
+            }
+            return Constants.DEFAULT_FONT_SIZE;
         }
     }
 
