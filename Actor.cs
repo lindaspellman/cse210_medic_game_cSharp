@@ -18,6 +18,8 @@ namespace cse210_medic_game_cSharp
         protected string _text = "";
         private string _image = "";
 
+        // protected int _fontSize;
+
         public Actor()
         {
             // Start these at 0, 0 by default
@@ -162,7 +164,13 @@ namespace cse210_medic_game_cSharp
 
         public virtual int GetFontSize()
         {
+            // return _fontSize; 
             return Constants.DEFAULT_FONT_SIZE;
+        }
+
+        public virtual bool GameOver()
+        {
+            return false;
         }
 
     }

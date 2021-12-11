@@ -10,8 +10,8 @@ namespace cse210_medic_game_cSharp
         // POINTS 
         public const int VICTORY_POINTS = 300;
         public const int STARTING_POINTS = 50;
-        public const int ENEMY_POINTS = -20;
-        public const int CIVILIAN_POINTS = 15;
+        public const int ENEMY_POINTS = -30; //Original: -20 // Trying to lose with -40
+        public const int CIVILIAN_POINTS = 15; //Original: 15 // Trying to win with 50
 
         // DEFAULTS //////////////////////////////////////////////////////////////////////////
         public const int MAX_X = 800;
@@ -23,8 +23,15 @@ namespace cse210_medic_game_cSharp
         public const int DEFAULT_SQUARE_SIZE = 20;
 
         public const int DEFAULT_FONT_SIZE = 30;
-        public const int GAMEOVER_FONT_SIZE = 100;
+        public const int GAMEOVER_FONT_SIZE = 60;
         public const int DEFAULT_TEXT_OFFSET = 4;
+        public const int SIGN_POSITION_X = Constants.MAX_X / 2 - Constants.GAMEOVER_FONT_SIZE * 2;
+        public const int SIGN_POSITION_Y = Constants.MAX_Y / 2 - Constants.GAMEOVER_FONT_SIZE / 2;
+        public const int INVUlNERABILITY_FRAME_COUNT = 120;
+        public const int POWER_UP_INTERVAL = 600;
+
+
+
 
         // CIVILIAN //////////////////////////////////////////////////////////////////////////////////
         public const int CIVILIAN_WIDTH = 30;
@@ -43,13 +50,13 @@ namespace cse210_medic_game_cSharp
         public const int ENEMY_WIDTH = 25;
         public const int ENEMY_HEIGHT = 25;
         public const int ENEMY_SPACE = 5;
-        public const int ENEMIES_PRESENT = 5;
+        public const int ENEMIES_PRESENT = 3;
         public const int ENEMY_FRACTION = 5;
 
         // ASSETS ////////////////////////////////////////////////////////////////////////////////////
-        public const string SOUND_START = "./Assets/start.wav";
-        public const string SOUND_BOUNCE = "./Assets/boing.wav";
-        public const string SOUND_OVER = "./Assets/over.wav"; 
+        // public const string SOUND_START = "./Assets/start.wav";
+        // public const string SOUND_BOUNCE = "./Assets/boing.wav";
+        // public const string SOUND_OVER = "./Assets/over.wav"; 
         // public const string IMAGE_BRICK = "./Assets/brick-3.png";
         // public const string IMAGE_PADDLE = "./Assets/bat.png";
         // public const string IMAGE_BALL = "./Assets/ball.png";

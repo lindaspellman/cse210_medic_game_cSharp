@@ -14,6 +14,8 @@ namespace cse210_medic_game_cSharp
         PhysicsService _physicsService = new PhysicsService();
         AudioService _audioService = new AudioService();
 
+        int invulnerabilityFrameCount = Constants.INVUlNERABILITY_FRAME_COUNT;
+
         public HandleCollisionsAction(PhysicsService physicsService)
         {
             _physicsService = physicsService;
@@ -25,21 +27,51 @@ namespace cse210_medic_game_cSharp
             List<Actor> medic = cast["medic"]; // Only one 
             List<Actor> enemies = cast["enemies"]; // Get all the enemies
             List<Actor> scoreboard = cast["scoreboard"]; // Only one
+            List<Actor> powerUps = cast["powerUps"];
 
             ScoreBoard sb = (ScoreBoard)scoreboard[0];
 
             List<Actor> toRemoveEnemies = new List<Actor>();
             List<Actor> toRemoveCivilians = new List<Actor>();
-            // List<Actor> toRemoveMedic = new List<Actor>();
+            List<Actor> toRemovePowerUps = new List<Actor>();
 
             ///
 
+            if (Invulnerability._invulnerable)
+            {
+                invulnerabilityFrameCount--;
+                if (invulnerabilityFrameCount <= 0)
+                {
+                    Invulnerability._invulnerable = false;
+                }
+            }
+
+            foreach (Actor p in powerUps)
+            {
+                if (_physicsService.IsCollision(medic[0], p))
+                {
+                    PowerUp powerUp = (PowerUp)p;
+                    
+                    // _audioService.PlaySound(Constants.SOUND_BOUNCE);
+                    toRemovePowerUps.Add(powerUp);
+                    Invulnerability._invulnerable = true;
+                    invulnerabilityFrameCount = 120;
+                }
+            }
+            
+
+            foreach (PowerUp pow in toRemovePowerUps)
+            {
+                powerUps.Remove(pow);
+                
+            }
+            
             foreach (Actor c in civilians)
             {
                 if (_physicsService.IsCollision(medic[0], c))
                 {
                     Civilian civilian = (Civilian)c;
-                    _audioService.PlaySound(Constants.SOUND_BOUNCE);
+                    // _audioService.PlaySound(Constants.SOUND_BOUNCE);
                     toRemoveCivilians.Add(civilian);
                     sb.AddPoints(Constants.CIVILIAN_POINTS);
                 }
@@ -55,10 +87,10 @@ namespace cse210_medic_game_cSharp
 
             foreach (Actor e in enemies)
             {
-                if(_physicsService.IsCollision(medic[0], e))
+                if(!Invulnerability._invulnerable && _physicsService.IsCollision(medic[0], e))
                 {
                     Enemy enemy = (Enemy)e;
-                    _audioService.PlaySound(Constants.SOUND_BOUNCE);
+                    //_audioService.PlaySound(Constants.SOUND_BOUNCE);
                     sb.AddPoints(Constants.ENEMY_POINTS);
                     toRemoveEnemies.Add(enemy);
                 }
@@ -77,10 +109,10 @@ namespace cse210_medic_game_cSharp
             {
                 foreach (Enemy e in enemies)
                 {
-                    if (_physicsService.IsCollision(civ, e))
+                    if (!Invulnerability._invulnerable && _physicsService.IsCollision(civ, e))
                     {
                         Civilian civilian = (Civilian)civ;
-                        _audioService.PlaySound(Constants.SOUND_BOUNCE);
+                        //_audioService.PlaySound(Constants.SOUND_BOUNCE);
                         toRemoveCivilians.Add(civilian);
                     }
                 }

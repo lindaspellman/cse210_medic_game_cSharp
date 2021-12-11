@@ -138,7 +138,7 @@ namespace cse210_medic_game_cSharp
             {
                 if (actor is Medic)
                 {
-                    DrawBox(x, y, width, height, Raylib_cs.Color.BLUE);
+                    DrawBox(x, y, width, height, Invulnerability._invulnerable ? Raylib_cs.Color.VIOLET : Raylib_cs.Color.BLUE); // ternary operator - condition
                 }
 
                 if (actor is Civilian)
@@ -149,6 +149,12 @@ namespace cse210_medic_game_cSharp
                 if (actor is Enemy)
                 {
                     DrawBox(x, y, width, height, Raylib_cs.Color.RED);
+                }
+
+                if (actor is PowerUp)
+                {
+                    DrawBox(x, y, width, height, Raylib_cs.Color.YELLOW);
+
                 }
             }
         }

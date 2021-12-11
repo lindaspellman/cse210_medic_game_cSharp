@@ -11,18 +11,27 @@ namespace cse210_medic_game_cSharp
     /// </summary>
     public class Enemy : Actor 
     {
-        Random randomGenerator = new Random();
         public Enemy()
         {
             // set random velocity
-            int dy = randomGenerator.Next(Constants.MINIMUM_SPEED, Constants.MAXIMUM_SPEED);
-            int dx = randomGenerator.Next(Constants.MINIMUM_SPEED, Constants.MAXIMUM_SPEED);
+            int dy = Invulnerability.randomGenerator.Next(Constants.MINIMUM_SPEED, Constants.MAXIMUM_SPEED);
+            int dx = Invulnerability.randomGenerator.Next(Constants.MINIMUM_SPEED, Constants.MAXIMUM_SPEED);
+            int coinFlip = Invulnerability.randomGenerator.Next(0, 1);
+            if (coinFlip == 1)
+            {
+                dx = -dx;
+            }
+            coinFlip = Invulnerability.randomGenerator.Next(0, 1);
+            if (coinFlip == 1)
+            {
+                dy = -dy;
+            }
             _fractionalMovement = new Point(0,0);
             _velocity = new Point(dx,dy);
 
             // set random position
-            int randomX = randomGenerator.Next(Constants.ENEMY_SPACE, Constants.MAX_X);
-            int randomY = randomGenerator.Next(Constants.ENEMY_SPACE, Constants.MAX_Y);
+            int randomX = Invulnerability.randomGenerator.Next(Constants.ENEMY_SPACE, Constants.MAX_X - Constants.ENEMY_SPACE);
+            int randomY = Invulnerability.randomGenerator.Next(Constants.ENEMY_SPACE, Constants.MAX_Y - Constants.ENEMY_SPACE);
             Point _point = new Point(randomX, randomY);
             SetPosition(_point);
             

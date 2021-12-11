@@ -36,9 +36,16 @@ namespace cse210_medic_game_cSharp
                 cast["civilians"].Add(civilian);
             }
 
+            cast["powerUps"] = new List<Actor>();
+            
+
             cast["scoreboard"] = new List<Actor>();
             ScoreBoard scoreBoard = new ScoreBoard();
             cast["scoreboard"].Add(scoreBoard);
+
+            cast["levelSign"] = new List<Actor>();
+            LevelSign levelSign = new LevelSign();
+            cast["levelSign"].Add(levelSign);
 
             // Create the script
             Dictionary<string, List<Action>> script = new Dictionary<string, List<Action>>();

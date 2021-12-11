@@ -1,17 +1,23 @@
 using System;
+using System.Collections.Generic;
 
 namespace cse210_medic_game_cSharp
 {
     /// <summary>
-    /// The score board in the top portion of the game.
+    /// 
+    /// 
+    /// Stereotype:
+    ///     
     /// </summary>
-    class ScoreBoard : Actor
+    public class LevelSign : Actor
     {
-        private int _points = Constants.STARTING_POINTS;
+        private int _levelNum = 1;
+        private int _newLevel;
 
-        public ScoreBoard()
+        
+        public LevelSign()
         {
-            _position = new Point(20, 20);
+            _position = new Point(600, 20);
             _width = 0;
             _height = 0;
             
@@ -19,13 +25,14 @@ namespace cse210_medic_game_cSharp
         }
 
         /// <summary>
-        /// Increments the points by the amount specified and updates the
+        /// Increments the level by 1 and updates the
         /// text.
         /// </summary>
         /// <param name="points"></param>
-        public void AddPoints(int points)
+        public void IncreaseLevel(int level)
         {
-            _points += points;
+            _levelNum = level;
+            _newLevel = _levelNum++;
             UpdateText();
         }
 
@@ -35,24 +42,12 @@ namespace cse210_medic_game_cSharp
         /// </summary>
         private void UpdateText()
         {
-            _text = $"Score: {_points}";
+            _text = $"Level: {_levelNum}";
         }
 
-        public int GetPoints()
+        public int GetLevelNum()
         {
-            return _points; 
-        }
-
-        public override bool GameOver()
-        {
-            if (_points <= 0 || _points >= Constants.VICTORY_POINTS)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
+            return _levelNum; 
         }
 
         public override int GetFontSize()
@@ -64,11 +59,5 @@ namespace cse210_medic_game_cSharp
             return Constants.DEFAULT_FONT_SIZE;
         }
 
-        public void ResetScore()
-        {
-            _points = Constants.STARTING_POINTS;
-        }
-
     }
-
 }
