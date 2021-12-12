@@ -20,6 +20,7 @@ namespace cse210_medic_game_cSharp
         // private int _newLevel;
         private bool countDown = false;
         private int frameCount = 150;
+        // AudioService _audioService = new AudioService();
 
 
         public Director(Dictionary<string, List<Actor>> cast, Dictionary<string, List<Action>> script)
@@ -56,6 +57,7 @@ namespace cse210_medic_game_cSharp
                     }
                     else 
                     {
+                        
                         frameCount--;
 
                         _points = sb.GetPoints();
@@ -63,20 +65,21 @@ namespace cse210_medic_game_cSharp
                         
                         if (_points <= 0)
                         {
+                            
                             _cast["defeatSign"] = new List<Actor>();
                             DefeatSign defeatSign = new DefeatSign(_currentLevel);
                             _cast["defeatSign"].Add(defeatSign);
 
                             if (frameCount <= 0)
                             {
+                                
                                 _keepPlaying = false;
                             }
                         }
 
-                        
-
                         if (_points >= Constants.VICTORY_POINTS)
                         {
+                            
                             _cast["victorySign"] = new List<Actor>();
                             VictorySign victorySign = new VictorySign(_currentLevel);
                             _cast["victorySign"].Add(victorySign);
@@ -84,12 +87,6 @@ namespace cse210_medic_game_cSharp
                             List<Actor> victSign = _cast["victorySign"]; // Only one
                             VictorySign vs = (VictorySign)victSign[0];
 
-                            // List<Actor> defSign = _cast["defeatSign"]; // Only one
-                            // DefeatSign ds = (DefeatSign)defSign[0];
-
-                            // ds.UpdateText(_points); // this deletes the Defeat Sign that overlaps the Victory Sign. 
-                            // I want to know why it appears at the same time as the Victory Sign in the first place
-                            
                             if (frameCount <= 0)
                             {
                                 sb.ResetScore();

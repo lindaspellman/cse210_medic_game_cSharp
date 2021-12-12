@@ -47,22 +47,24 @@ namespace cse210_medic_game_cSharp
             LevelSign levelSign = new LevelSign();
             cast["levelSign"].Add(levelSign);
 
-            // Create the script
+            // Create the script ///////////////////////////////////////////////////////////
             Dictionary<string, List<Action>> script = new Dictionary<string, List<Action>>();
+
+            // Services ////////////////////////////////////////////////////////////////////
 
             OutputService outputService = new OutputService();
             InputService inputService = new InputService();
             PhysicsService physicsService = new PhysicsService();
-            // AudioService audioService = new AudioService();
+            AudioService audioService = new AudioService();
 
+            // Actions //////////////////////////////////////////////////////////////////////
+            
             script["output"] = new List<Action>();
             script["input"] = new List<Action>();
             script["update"] = new List<Action>();
 
             DrawActorsAction drawActorsAction = new DrawActorsAction(outputService);
             script["output"].Add(drawActorsAction);
-
-            // TODO: Add additional actions here to handle the input, move the actors, handle collisions, etc.
             
             MoveActorsAction moveActorsAction = new MoveActorsAction();
             script["update"].Add(moveActorsAction);
@@ -76,15 +78,15 @@ namespace cse210_medic_game_cSharp
             HandleCollisionsAction handleCollisionsAction = new HandleCollisionsAction(physicsService);
             script["update"].Add(handleCollisionsAction);
 
-            // Start up the game
+            // Start up the game ///////////////////////////////////////////////////////////////////////
             outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Medic", Constants.FRAME_RATE);
-            // audioService.StartAudio();
-            // audioService.PlaySound(Constants.SOUND_START);
+            audioService.StartAudio();
+            audioService.PlaySound(Constants.SOUND_START);
 
             Director theDirector = new Director(cast, script);
             theDirector.Direct();
 
-            // audioService.StopAudio();
+            audioService.StopAudio();
         }
     }
 }

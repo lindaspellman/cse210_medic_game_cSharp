@@ -20,6 +20,7 @@ namespace cse210_medic_game_cSharp
 
             SetHeight(Constants.CIVILIAN_HEIGHT);
             SetWidth(Constants.CIVILIAN_WIDTH);
+            SetImage(Constants.IMAGE_CIVILIAN);
         }
     }
 }

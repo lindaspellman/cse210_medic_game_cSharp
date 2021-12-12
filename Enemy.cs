@@ -38,78 +38,82 @@ namespace cse210_medic_game_cSharp
             // create box
             SetHeight(Constants.ENEMY_HEIGHT);
             SetWidth(Constants.ENEMY_WIDTH);
+            SetImage(Constants.IMAGE_ENEMY);
         }
 
-        public override void MoveNext()
-        {
-            int x;
-            int y;
-            // slowing the velocity by a fraction of a enemy
-            _fractionalMovement = _fractionalMovement.Add(_velocity);
+        // THIS IS A NICE-TO-HAVE THING THAT DOESN'T CURRENLTY FUNCTION CORRECTLY 
+        // AND IS NOT REQUIRED FOR THE GAME TO FUNCTION CORRECTLY.
 
-            if (_fractionalMovement.GetX() > Constants.ENEMY_FRACTION)
-            {
-                x = _position.GetX();
-                x += _fractionalMovement.GetX() / Constants.ENEMY_FRACTION;
+        // public override void MoveNext()
+        // {
+        //     int x;
+        //     int y;
+        //     // slowing the velocity by a fraction of a enemy
+        //     _fractionalMovement = _fractionalMovement.Add(_velocity);
 
-                y = _position.GetY();
-                _position = new Point(x, y);
+        //     if (_fractionalMovement.GetX() > Constants.ENEMY_FRACTION)
+        //     {
+        //         x = _position.GetX();
+        //         x += _fractionalMovement.GetX() / Constants.ENEMY_FRACTION;
 
-                x = _fractionalMovement.GetX();
-                x %= Constants.ENEMY_FRACTION;
+        //         y = _position.GetY();
+        //         _position = new Point(x, y);
 
-                y = _fractionalMovement.GetY();
-                _fractionalMovement = new Point(x, y);
-            }
-            else
-            {
-                if (_fractionalMovement.GetX() < -Constants.ENEMY_FRACTION)
-                {
-                    x = _position.GetX();
-                    x -= _fractionalMovement.GetX() / Constants.ENEMY_FRACTION;
+        //         x = _fractionalMovement.GetX();
+        //         x %= Constants.ENEMY_FRACTION;
 
-                    y = _position.GetY();
-                    _position = new Point(x, y);
+        //         y = _fractionalMovement.GetY();
+        //         _fractionalMovement = new Point(x, y);
+        //     }
+        //     else
+        //     {
+        //         if (_fractionalMovement.GetX() < -Constants.ENEMY_FRACTION)
+        //         {
+        //             x = _position.GetX();
+        //             x -= _fractionalMovement.GetX() / Constants.ENEMY_FRACTION;
 
-                    x = _fractionalMovement.GetX();
-                    x %= Constants.ENEMY_FRACTION;
+        //             y = _position.GetY();
+        //             _position = new Point(x, y);
 
-                    y = _fractionalMovement.GetY();
-                    _fractionalMovement = new Point(x, y);
-                }
-            }
+        //             x = _fractionalMovement.GetX();
+        //             x %= Constants.ENEMY_FRACTION;
 
-            if (_fractionalMovement.GetY() > Constants.ENEMY_FRACTION)
-            {
-                y = _position.GetY();
-                y += _fractionalMovement.GetY() / Constants.ENEMY_FRACTION;
+        //             y = _fractionalMovement.GetY();
+        //             _fractionalMovement = new Point(x, y);
+        //         }
+        //     }
+
+        //     if (_fractionalMovement.GetY() > Constants.ENEMY_FRACTION)
+        //     {
+        //         y = _position.GetY();
+        //         y += _fractionalMovement.GetY() / Constants.ENEMY_FRACTION;
                 
-                x = _position.GetX();
-                _position = new Point(x, y);
+        //         x = _position.GetX();
+        //         _position = new Point(x, y);
 
-                y = _fractionalMovement.GetY();
-                y %= Constants.ENEMY_FRACTION;
+        //         y = _fractionalMovement.GetY();
+        //         y %= Constants.ENEMY_FRACTION;
                 
-                x = _fractionalMovement.GetX();
-                _fractionalMovement = new Point(x, y);
-            }
-            else
-            {
-                if (_fractionalMovement.GetY() < -Constants.ENEMY_FRACTION)
-                {
-                    y = _position.GetY();
-                    y -= _fractionalMovement.GetY() / Constants.ENEMY_FRACTION;
+        //         x = _fractionalMovement.GetX();
+        //         _fractionalMovement = new Point(x, y);
+        //     }
+        //     else
+        //     {
+        //         if (_fractionalMovement.GetY() < -Constants.ENEMY_FRACTION)
+        //         {
+        //             y = _position.GetY();
+        //             y -= _fractionalMovement.GetY() / Constants.ENEMY_FRACTION;
                     
-                    x = _position.GetX();
-                    _position = new Point(x, y);
+        //             x = _position.GetX();
+        //             _position = new Point(x, y);
 
-                    y = _fractionalMovement.GetY();
-                    y %= Constants.ENEMY_FRACTION;
+        //             y = _fractionalMovement.GetY();
+        //             y %= Constants.ENEMY_FRACTION;
                     
-                    x = _fractionalMovement.GetX();
-                    _fractionalMovement = new Point(x, y);
-                }
-            }
-        }
+        //             x = _fractionalMovement.GetX();
+        //             _fractionalMovement = new Point(x, y);
+        //         }
+        //     }
+        // }
     }
 }
