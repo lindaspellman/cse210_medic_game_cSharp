@@ -138,7 +138,7 @@ namespace cse210_medic_game_cSharp
             {
                 if (actor is Medic)
                 {
-                    DrawBox(x, y, width, height, Invulnerability._invulnerable ? Raylib_cs.Color.PURPLE : Raylib_cs.Color.BLUE); // ternary operator - condition
+                    DrawBox(x, y, width, height, Invulnerability._invulnerable ? Raylib_cs.Color.PURPLE : Raylib_cs.Color.BLUE); // ternary operator - condition ? result : else
                 }
 
                 if (actor is Civilian)
